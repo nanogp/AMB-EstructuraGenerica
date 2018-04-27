@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "D:\github\Toolbox\General.h"
 #include "EstructuraGenerica.h"
-#define TAMANIO 10
-#define OCUPADO 0
-#define LIBRE 1
-
-
+#define TITULO_ALTA DEFINIR_MACRO_STRING("ALTA DE GENERICA")
+#define TITULO_BAJA DEFINIR_MACRO_STRING("BAJA DE GENERICA")
+#define TITULO_MODIFICACION DEFINIR_MACRO_STRING("MODIFICACION DE GENERICA")
 
 int eGen_init( eGenerica listado[],int limite)
 {
@@ -161,4 +160,33 @@ int eGen_alta(eGenerica  listado[],int limite)
         }
     }
     return retorno;
+}
+
+int eGen_baja(eGenerica listado[] ,int limite, int id)
+{
+    int posicion;
+
+    posicion = eGen_buscarPorId(listado, limite, id);
+
+    listado[posicion].estado = LIBRE;
+
+    return posicion;
+}
+
+int eGen_modificacion(eGenerica listado[] ,int limite, int id)
+{
+    int posicion;
+
+    posicion = eGen_buscarPorId((listado, limite, id);
+
+    pedirString(listado[posicion].nombre, "Ingrese nuevo nombre");
+
+    if(listado[posicion].estado == LIBRE)
+    {
+        if(pedirConfirmacion("Desea Rehabilitar?") == 'S')
+        {
+            listado[posicion].estado = OCUPADO;
+        }
+    }
+
 }

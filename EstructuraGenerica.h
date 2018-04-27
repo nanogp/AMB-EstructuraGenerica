@@ -9,6 +9,10 @@ typedef struct
 }eGenerica;
 #endif // ESTRUCTURAGENERICA_H_INCLUDED
 
+#define TAMANIO 10
+#define OCUPADO 0
+#define LIBRE 1
+
 int eGen_init(eGenerica[],int limite);
 int eGen_buscarPorId(eGenerica[] ,int limite, int id);
 int eGen_siguienteId(eGenerica[] ,int limite);
